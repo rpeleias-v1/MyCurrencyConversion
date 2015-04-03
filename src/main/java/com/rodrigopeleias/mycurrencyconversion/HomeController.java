@@ -28,7 +28,7 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/currency/convert", method = RequestMethod.POST)
+	@RequestMapping(value = "/conversion/currency", method = RequestMethod.POST)
 	public String currencyConversion(@ModelAttribute("conversion") Conversion conversion, Model model) {
 		Conversion conversionResponse = conversionService.getConvertedCurrency(conversion);
 		setupPage(model, conversionResponse);

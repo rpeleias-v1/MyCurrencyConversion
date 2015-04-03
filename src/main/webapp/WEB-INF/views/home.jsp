@@ -4,6 +4,8 @@
 <%@ page session="false" %>
 <html>
 <head>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<title>Home</title>
 </head>
 <body>
@@ -11,9 +13,9 @@
 	My Currency Converter
 </h1>
 
-<c:url var="currencyConversion" value="/currency/convert"></c:url>
+<c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
-<form:form  method="POST" action="${currencyConversion}" commandName="conversion">
+<form:form  method="POST" commandName="conversion">
 	<table>
 		<tr>
 			<td>
@@ -43,10 +45,20 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="submit" value="<spring:message text="Convert"/>" />
+				<input type="submit" name="convert" value="<spring:message text="Convert"/>" />
+				<input type="submit" name="reserveConversion" value="<spring:message text="Reverse Conversion"/>" />
 			</td>
 		</tr>
 	</table>
 </form:form>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#convert").click(function() {
+			document.searchForm.action = <%= request.getContextPath()+ "/conversion/currency" %>;
+		});
+	});
+</script>
 </body>
 </html>
+
