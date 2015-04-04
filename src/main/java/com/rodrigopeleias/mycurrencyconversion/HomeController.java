@@ -1,7 +1,6 @@
 package com.rodrigopeleias.mycurrencyconversion;
 
 import java.util.Locale;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.rodrigopeleias.mycurrencyconversion.model.Conversion;
 import com.rodrigopeleias.mycurrencyconversion.service.ConversionService;
 
-/**
- * Handles requests for the application home page.
- */
+
 @Controller
 public class HomeController {
 			
@@ -28,11 +25,23 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/conversion/currency", method = RequestMethod.POST)
+	@RequestMapping(value = "/conversion/currency", method = RequestMethod.POST, params = "convert")
 	public String currencyConversion(@ModelAttribute("conversion") Conversion conversion, Model model) {
 		Conversion conversionResponse = conversionService.getConvertedCurrency(conversion);
 		setupPage(model, conversionResponse);
 		return "home";
+	}
+	
+	@RequestMapping(value = "/conversion/currency", method = RequestMethod.POST, params = "revertConversion")
+	public String revertConversion(@ModelAttribute("conversion") Conversion conversion, Model model) {
+		Conversion conversionResponse = conversionService.getRevertedConversion(conversion);
+		setupPage(model, conversionResponse);
+		return "home";
+	}
+	
+	@RequestMapping(value = "/conversion/currency", method = RequestMethod.POST, params = "newConversion")
+	public String newConversion() {
+		return "redirect:/";
 	}
 
 	private void setupPage(Model model, Conversion conversionResponse) {

@@ -69,4 +69,16 @@ public class ConversionServiceImpl implements ConversionService {
 		return conversionResponse;
 	}
 
+	@Override
+	public Conversion getRevertedConversion(Conversion conversion) {
+		Conversion revertedConversion = new Conversion();
+		revertedConversion.setFrom(conversion.getTo());
+		revertedConversion.setTo(conversion.getFrom());
+		revertedConversion.setFromAmount(conversion.getToAmount());
+		try {
+			return requestConversion(revertedConversion);
+		} catch (UnirestException | IOException e) {			
+			return null;
+		}
+	}
 }

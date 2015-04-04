@@ -8,5 +8,6 @@ public interface ConversionService {
 	
 	Map<String, String> getAvailableCurrencies();
 	Conversion getConvertedCurrency(Conversion conversion);
+	Conversion getRevertedConversion(Conversion conversion);
 
 }

@@ -15,7 +15,7 @@
 
 <c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
-<form:form  method="POST" commandName="conversion">
+<form:form  action="${currencyConversion}" commandName="conversion">
 	<table>
 		<tr>
 			<td>
@@ -37,28 +37,22 @@
 				</form:label>
 			</td>
 			<td>
-				<form:input path="toAmount" disabled="true"/>
+				<form:input path="toAmount" readonly="true"/>
 			</td>
 			<td>
 				<form:select path="to" items="${availableCurrencies}" ></form:select>
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="3">
 				<input type="submit" name="convert" value="<spring:message text="Convert"/>" />
-				<input type="submit" name="reserveConversion" value="<spring:message text="Reverse Conversion"/>" />
+				<input type="submit" name="revertConversion" value="<spring:message text="Reverse Conversion"/>" />
+				<input type="submit" name="newConversion" value="<spring:message text="New Conversion"/>" />
 			</td>
 		</tr>
 	</table>
 </form:form>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#convert").click(function() {
-			document.searchForm.action = <%= request.getContextPath()+ "/conversion/currency" %>;
-		});
-	});
-</script>
 </body>
 </html>
 
