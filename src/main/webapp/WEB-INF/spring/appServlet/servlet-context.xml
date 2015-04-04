@@ -23,6 +23,8 @@
 	
 	<context:component-scan base-package="com.rodrigopeleias.mycurrencyconversion" />
 	
-	
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</beans:bean>
 	
 </beans:beans>
