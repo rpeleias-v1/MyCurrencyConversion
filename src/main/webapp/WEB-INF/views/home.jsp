@@ -2,16 +2,6 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
-<html>
-<head>
-	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	My Currency Converter
-</h1>
 
 <c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
@@ -52,7 +42,4 @@
 		</tr>
 	</table>
 </form:form>
-
-</body>
-</html>
 
