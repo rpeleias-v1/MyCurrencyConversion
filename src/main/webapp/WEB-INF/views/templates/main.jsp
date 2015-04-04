@@ -10,13 +10,22 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<title> <tiles:getAsString name="title" /> </title>
 </head>
-<body>
+<body role="document">
 	
-	<tiles:insertAttribute name="header" />
+	<div class="container">
+		<tiles:insertAttribute name="header" />
 	
-	<tiles:insertAttribute name="content" />
+		<div class="jumbotron">
+			<div class="container">
+				<tiles:insertAttribute name="content" />
+			</div>		
+		</div>
+		
+		
+		<tiles:insertAttribute name="footer" />
+			
+	</div>
 	
-	<tiles:insertAttribute name="footer" />
-
+	
 </body>
 </html>

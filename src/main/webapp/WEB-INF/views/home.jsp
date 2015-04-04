@@ -5,41 +5,28 @@
 
 <c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
-<form:form  action="${currencyConversion}" commandName="conversion">
-	<table>
-		<tr>
-			<td>
-				<form:label path="from">
-					<spring:message text="From: " />
-				</form:label>
-			</td>
-			<td>
-				<form:input path="fromAmount" />
-			</td>
-			<td>
-				<form:select path="from" items="${availableCurrencies}" ></form:select>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<form:label path="to">
-					<spring:message text="To: " />
-				</form:label>
-			</td>
-			<td>
-				<form:input path="toAmount" readonly="true"/>
-			</td>
-			<td>
-				<form:select path="to" items="${availableCurrencies}" ></form:select>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="3">
-				<input type="submit" name="convert" value="<spring:message text="Convert"/>" />
-				<input type="submit" name="revertConversion" value="<spring:message text="Reverse Conversion"/>" />
-				<input type="submit" name="newConversion" value="<spring:message text="New Conversion"/>" />
-			</td>
-		</tr>
-	</table>
+<form:form  cssClass="form-horizontal" action="${currencyConversion}" commandName="conversion">	
+	<div>
+		<div class="form-inline">
+			<form:label path="from" cssClass="">
+				<spring:message text="From: " />
+			</form:label>
+			<form:input cssClass="form-control" path="fromAmount" />
+			<form:select cssClass="form-control" path="from" items="${availableCurrencies}" ></form:select>
+		</div>
+		<div class="form-inline">
+			<form:label path="to">
+				<spring:message text="To: " />
+			</form:label>
+			<form:input cssClass="form-control" path="toAmount" readonly="true"/>
+			<form:select cssClass="form-control" path="to" items="${availableCurrencies}" ></form:select>
+		</div>
+		<div class="form-inline">
+			<input type="submit" name="convert" value="<spring:message text="Convert"/>" />
+			<input type="submit" name="revertConversion" value="<spring:message text="Reverse Conversion"/>" />
+			<input type="submit" name="newConversion" value="<spring:message text="New Conversion"/>" />
+		</div>		
+	</div>
+		
 </form:form>
 
