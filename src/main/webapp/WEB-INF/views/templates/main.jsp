@@ -15,17 +15,12 @@
 	<div class="container" style="padding-top: 70px; text-align: center;" >
 		<tiles:insertAttribute name="header" />
 	
-		<div class="jumbotron" >
-			<div class="container">
-				<tiles:insertAttribute name="content" />
-			</div>		
+		<div class="jumbotron" >			
+			<tiles:insertAttribute name="content" />
 		</div>
-		
 		
 		<tiles:insertAttribute name="footer" />
 			
 	</div>
-	
-	
 </body>
 </html>
