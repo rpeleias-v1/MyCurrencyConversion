@@ -12,10 +12,10 @@
 </head>
 <body role="document">
 	
-	<div class="container">
+	<div class="container" style="padding-top: 70px; text-align: center;" >
 		<tiles:insertAttribute name="header" />
 	
-		<div class="jumbotron">
+		<div class="jumbotron" >
 			<div class="container">
 				<tiles:insertAttribute name="content" />
 			</div>		

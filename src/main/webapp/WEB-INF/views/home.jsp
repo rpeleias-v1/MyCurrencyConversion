@@ -5,26 +5,54 @@
 
 <c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
-<form:form  cssClass="form-horizontal" action="${currencyConversion}" commandName="conversion">	
-	<div>
-		<div class="form-inline">
-			<form:label path="from" cssClass="">
-				<spring:message text="From: " />
-			</form:label>
-			<form:input cssClass="form-control" path="fromAmount" />
-			<form:select cssClass="form-control" path="from" items="${availableCurrencies}" ></form:select>
+<form:form cssClass="form-horizontal" action="${currencyConversion}" commandName="conversion">	
+	<div class="input-group">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-sm-1">
+					<form:label path="from" cssClass="col-sm-3 control-label">
+						<spring:message text="From: " />
+					</form:label>
+				</div>
+				<div class="col-sm-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon1">$</span>
+						<form:input cssClass="form-control" path="fromAmount" aria-describedby="basic-addon1" />
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="input-group">
+						<form:select cssClass="form-control" path="from" items="${availableCurrencies}" ></form:select>
+					</div>
+				</div>								
+			</div>									
 		</div>
-		<div class="form-inline">
-			<form:label path="to">
-				<spring:message text="To: " />
-			</form:label>
-			<form:input cssClass="form-control" path="toAmount" readonly="true"/>
-			<form:select cssClass="form-control" path="to" items="${availableCurrencies}" ></form:select>
+		<div class="form-group">		
+			<div class="row" style="text-align: center;">
+				<div class="col-sm-1">
+					<form:label path="to" cssClass="col-sm-2 control-label">
+						<spring:message text="To: " />
+					</form:label>
+				</div>
+				<div class="col-sm-4">
+					<div class="input-group">
+						<span class="input-group-addon" id="basic-addon2">$</span>
+						<form:input cssClass="form-control" path="toAmount" readonly="true" aria-describedby="basic-addon1" />
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="input-group" >
+						<form:select cssClass="form-control" path="to" items="${availableCurrencies}" ></form:select>
+					</div>
+				</div>								
+			</div>										
 		</div>
-		<div class="form-inline">
-			<input type="submit" name="convert" value="<spring:message text="Convert"/>" />
-			<input type="submit" name="revertConversion" value="<spring:message text="Reverse Conversion"/>" />
-			<input type="submit" name="newConversion" value="<spring:message text="New Conversion"/>" />
+		<div class="form-group">
+			<div class="row" >
+				<input type="submit" class="btn btn-primary" name="convert" value="<spring:message text="Convert"/>" />
+				<input type="submit" class="btn btn-primary" name="revertConversion" value="<spring:message text="Reverse Conversion"/>" />
+				<input type="submit" class="btn btn-primary" name="newConversion" value="<spring:message text="New Conversion"/>" />
+			</div>			
 		</div>		
 	</div>
 		

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.rodrigopeleias.mycurrencyconversion.model.Conversion;
 import com.rodrigopeleias.mycurrencyconversion.service.ConversionService;
 
-
 @Controller
 public class HomeController {
 			
