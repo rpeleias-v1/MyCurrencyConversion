@@ -5,7 +5,7 @@
 
 <c:url var="currencyConversion" value="/conversion/currency"></c:url>
 
-<form:form cssClass="form-horizontal" action="${currencyConversion}" commandName="conversion">	
+<form:form id="conversionForm" cssClass="form-horizontal" action="${currencyConversion}" commandName="conversion">	
 	<div class="input-group">
 		<div class="form-group">			
 			<div class="col-sm-1">
@@ -51,6 +51,17 @@
 			</div>			
 		</div>		
 	</div>
-		
 </form:form>
+
+<script>
+	$(function() {		
+		$('#fromAmount').mask('000.000.000.000.000,00', {reverse: true});
+		$('#toAmount').mask('000.000.000.000.000,00', {reverse: true});
+
+		$('#conversionForm').submit(function() {
+			$('#fromAmount').val($('#fromAmount').unmask());
+		});
+		
+	})
+</script>
 

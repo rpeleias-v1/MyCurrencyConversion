@@ -1,4 +1,4 @@
-package com.rodrigopeleias.mycurrencyconversion;
+package com.rodrigopeleias.mycurrencyconversion.controller;
 
 import java.util.Locale;
 
