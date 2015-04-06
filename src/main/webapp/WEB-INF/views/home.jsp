@@ -55,11 +55,12 @@
 
 <script>
 	$(function() {		
-		$('#fromAmount').mask('000.000.000.000.000,00', {reverse: true});
-		$('#toAmount').mask('000.000.000.000.000,00', {reverse: true});
+		$('#fromAmount').mask('#.##0,00', {reverse: true});
+		$('#toAmount').mask('#.##0,00', {reverse: true});
 
 		$('#conversionForm').submit(function() {
-			$('#fromAmount').val($('#fromAmount').unmask());
+			$('#fromAmount').val($('#fromAmount').val().replace('.','').replace(',','.'));
+			$('#toAmount').val($('#toAmount').val().replace('.','').replace(',','.'));
 		});
 		
 	})

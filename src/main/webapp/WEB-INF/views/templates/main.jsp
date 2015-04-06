@@ -8,7 +8,7 @@
 	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js"></script>
+	<script src="<c:url value="/resources/js/jquery.mask.min.js" />"></script>
 	<title> <tiles:getAsString name="title" /> </title>
 </head>
 <body role="document">
